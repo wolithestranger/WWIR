@@ -125,6 +125,8 @@ def build_prompt( resume: str, job_description: str)-> str:
         f"[RESUME]\n{resume}\n\n[JOB_DESCRIPTION]\n{job_description}"
     )
 
+    return system_prompt, user_content
+
 # ---------- Flask app --------------------------------------------------------
 
 app = Flask(__name__)
