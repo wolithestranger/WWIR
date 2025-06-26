@@ -18,11 +18,14 @@ import os
 from flask import Flask, request, jsonify
 import openai
 from typing import Dict
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 #------configuration-------#
 
-OPENAI_API_KEY = os.getenv("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")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise RuntimeError("Set OPENAI_API_KEY env var before starting the server.")
 
@@ -87,4 +90,4 @@ def analyze():
 if __name__ == "__main__":
     # Allow port override for deployment platforms (Render, Railway, etc.)
     port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=False)
