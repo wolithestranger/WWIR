@@ -139,7 +139,7 @@ HTML_FORM = """
   <h3>Job Description</h3>
   <input type="file" name="job_desc_file" accept=".pdf,.docx">
   <br><small>or paste below</small><br>
-  <textarea name="job_description" rows="8" cols="80"></textarea>
+  <textarea name="job_desc" rows="8" cols="80"></textarea>
   <br><br>
   <button type="submit">Analyze</button>
 </form>
@@ -149,6 +149,7 @@ HTML_FORM = """
 <pre>{{ result }}</pre>
 {% endif %}
 """
+
 
 
 @app.route("/", methods=["GET"])
