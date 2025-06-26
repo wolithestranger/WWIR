@@ -100,7 +100,10 @@ def read_resume_or_desc(field_name: str) -> str:
     # 2️⃣ Fallback to textarea (form) or JSON payload:
     if request.form:
         return request.form.get(field_name.replace("_file", ""), "").strip()
-    return (request.json or {}).get(field_name.replace("_file", ""), "").strip()
+    #return (request.json or {}).get(field_name.replace("_file", ""), "").strip()
+    val = (request.json or {}).get(field_name.replace("_file", ""))
+    return val.strip() if isinstance(val, str) else ""
+
 
 # ---------- Prompt builder ---------------------------------------------------
 
